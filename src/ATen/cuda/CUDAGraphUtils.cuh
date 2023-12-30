@@ -1,3 +1,4 @@
+#pragma once
 #include <tuple>
 #include "CUDAGeneratorImpl.h"
 namespace at::cuda::philox 
