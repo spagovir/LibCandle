@@ -3,8 +3,6 @@
 #include <string>
 #include <stdexcept>
 
-#define C10_CUDA_CHECK(expr) libcandle::check(expr, __FILE__, __func__, static_cast<int>(__LINE__))
-#define C10_CUDA_KERNEL_LAUNCH_CHECK() C10_CUDA_CHECK(cudaGetLastError())
 
 namespace at::cuda
 {
@@ -44,3 +42,6 @@ namespace libcandle
         }
     }
 }
+
+#define C10_CUDA_CHECK(expr) libcandle::check(expr, __FILE__, __func__, static_cast<int>(__LINE__))
+#define C10_CUDA_KERNEL_LAUNCH_CHECK() C10_CUDA_CHECK(cudaGetLastError())
