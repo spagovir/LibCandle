@@ -7,7 +7,7 @@
 
 namespace libcandle 
 { 
-    void check(cudaError_t err, char* file, char* function, int line)
+    void check(cudaError_t err, const char* file, const char* function, int line)
     {
         if(err == cudaSuccess)
             return;
