@@ -11,14 +11,14 @@ namespace at::cuda
     cudaDeviceProp* getDeviceProperties(int64_t device)
     {
         cudaDeviceProp* prop = new cudaDeviceProp;
-        C10_CUDA_CHECK(cudaGetDeviceProperties(prop, device))
+        C10_CUDA_CHECK(cudaGetDeviceProperties(prop, device));
         return prop;
     }
     cudaDeviceProp* getCurrentDeviceProperties()
     {
         int device;
         c10_CUDA_CHECK(cudaGetDevice(&device));
-        return device;
+        return getDeviceProperties(device);
     }
         
 }
