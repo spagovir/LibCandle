@@ -7,7 +7,7 @@
 
 namespace libcandle 
 { 
-    void check(cudaError_t err, const char* file, const char* function, int line)
+    inline void check(cudaError_t err, const char* file, const char* function, int line)
     {
         if(err == cudaSuccess)
             return;
@@ -32,13 +32,13 @@ namespace libcandle
 
 namespace at::cuda
 {
-    cudaDeviceProp* getDeviceProperties(int64_t device)
+    inline cudaDeviceProp* getDeviceProperties(int64_t device)
     {
         cudaDeviceProp* prop = new cudaDeviceProp;
         C10_CUDA_CHECK(cudaGetDeviceProperties(prop, device));
         return prop;
     }
-    cudaDeviceProp* getCurrentDeviceProperties()
+    inline cudaDeviceProp* getCurrentDeviceProperties()
     {
         int device;
         C10_CUDA_CHECK(cudaGetDevice(&device));
